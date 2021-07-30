@@ -25,7 +25,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.linian.algs4.quickdemo.CollisionSystemDemo</mainClass>
+                  <mainClass>com.linian.algs4.chp1.iterabledemo.IterableDemo1</mainClass>
                 </transformer>
               </transformers>
             </configuration>
