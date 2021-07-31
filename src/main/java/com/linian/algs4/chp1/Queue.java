@@ -1,6 +1,9 @@
 package com.linian.algs4.chp1;
 
-public class Queue<T> {
+import java.util.Iterator;
+import java.util.Objects;
+
+public class Queue<T> implements Iterable<T> {
     private Node first;
     private Node last;
     private int N;
@@ -39,5 +42,26 @@ public class Queue<T> {
 
     public int size() {
         return N;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new QueueIterator();
+    }
+
+    private class QueueIterator implements Iterator<T> {
+        private Node current = first;
+
+        @Override
+        public T next() {
+            T item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return Objects.nonNull(current);
+        }
     }
 }

@@ -3,6 +3,9 @@ package com.linian.algs4.chp1;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QueueTest {
     @Test
     public void queueTest() {
@@ -23,5 +26,26 @@ public class QueueTest {
 
         Assert.assertEquals(queue.size(), 0);
         Assert.assertEquals(queue.isEmpty(), true);
+    }
+
+    @Test
+    public void iterateTest() {
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Java");
+        stringList.add("world");
+        stringList.add("hello");
+
+        final Queue<String> queue = new Queue<>();
+
+        for(String s: stringList) {
+            queue.enqueue(s);
+        }
+
+        int i = 0;
+        for(String s: queue) {
+            Assert.assertEquals(s, stringList.get(i++));
+        }
+
+        Assert.assertEquals(i, stringList.size());
     }
 }

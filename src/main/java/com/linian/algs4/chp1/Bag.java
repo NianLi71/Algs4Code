@@ -14,10 +14,7 @@ public class Bag<T> implements Iterable<T> {
     public void add(T item) {
         Node node = new Node();
         node.item = item;
-
-        if (!isEmpty()) {
-            last.next = node;
-        }
+        node.next = last;
 
         last = node;
         N++;

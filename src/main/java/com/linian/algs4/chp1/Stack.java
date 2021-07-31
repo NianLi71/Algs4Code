@@ -1,6 +1,9 @@
 package com.linian.algs4.chp1;
 
-public class Stack<T> {
+import java.util.Iterator;
+import java.util.Objects;
+
+public class Stack<T> implements Iterable<T> {
     private Node<T> first;
     private int N;
 
@@ -30,5 +33,26 @@ public class Stack<T> {
 
     public int size() {
         return N;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator();
+    }
+
+    private class StackIterator implements Iterator<T> {
+        private Node<T> current = first;
+
+        @Override
+        public T next() {
+            T item = current.getValue();
+            current = current.getNext();
+            return item;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return Objects.nonNull(current);
+        }
     }
 }

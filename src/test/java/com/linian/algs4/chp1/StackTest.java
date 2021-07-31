@@ -1,9 +1,13 @@
 package com.linian.algs4.chp1;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -24,7 +28,7 @@ public class StackTest {
     @Test
     public void isEmptyTest() {
         assertTrue(stack.isEmpty());
-        assertFalse(stack.isEmpty());
+        assertFalse(!stack.isEmpty());
     }
 
     @Test
@@ -47,5 +51,26 @@ public class StackTest {
         expectedException.expectMessage("Try to pop from an empty Stack.");
 
         stack.pop();
+    }
+
+    @Test
+    public void iterateStackTest() {
+        List<Integer> intList = new ArrayList<>();
+        intList.add(1);
+        intList.add(2);
+        intList.add(3);
+
+        for(int n: intList) {
+            stack.push(n);
+        }
+
+        int i = 0;
+        for(int n: stack) {
+            System.out.println(n);
+            Assert.assertEquals(n, intList.get(intList.size() - i - 1).intValue());
+            i++;
+        }
+
+        Assert.assertEquals(i, intList.size());
     }
 }

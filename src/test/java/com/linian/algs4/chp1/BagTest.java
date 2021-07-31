@@ -1,5 +1,6 @@
 package com.linian.algs4.chp1;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +38,9 @@ public class BagTest {
         for(String s: bag) {
             Assert.assertEquals(s, expectStrings.get(i++));
         }
+
+        // finish forEach loop assert
+        Assert.assertEquals(i, expectStrings.size());
     }
 
     @Test
