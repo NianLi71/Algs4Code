@@ -25,7 +25,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.linian.algs4.chp1.iterabledemo.IterableDemo1</mainClass>
+                  <mainClass>com.linian.algs4.chp1.Stopwatch</mainClass>
                 </transformer>
               </transformers>
             </configuration>
