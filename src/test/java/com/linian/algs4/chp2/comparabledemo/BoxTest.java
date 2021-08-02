@@ -35,7 +35,39 @@ public class BoxTest {
         Assert.assertTrue(isSorted(boxes));
     }
 
-    private boolean isSorted(Comparable[] a) {
+    @Test
+    public void isInstanceTest() {
+        Box redBox = new Box(10);
+
+        Assert.assertTrue(redBox instanceof Box);
+//        Assert.assertTrue(redBox instanceof Comparable<Box>);  // wrong!
+        Assert.assertTrue(redBox.getClass().isInstance(redBox));
+        Assert.assertTrue(Box.class.isInstance(redBox));
+    }
+
+    // Comparable
+    // Comparable<T>
+    // T extends Comparable<T>
+
+    private boolean isAcs(Comparable[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (less(a[i], a[i-1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private <T> boolean isDesc(Comparable<T>[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (less(a[i-1], a[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private <T extends Comparable<T>> boolean isSorted(T[] a) {
         for (int i = 1; i < a.length; i++) {
             if (less(a[i], a[i-1])) {
                 return false;
